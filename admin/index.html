@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<title>GSJCC VBS 2024 - Destiny - Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../inc/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+    h1,h2,h3{
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+</head>
+<body>
+
+<div class="w3-container">
+    <p></p>
+    <div class="w3-container w3-blue">
+        <h2>Admin Login</h2>
+      </div>
+      
+      <form class="w3-container w3-border" action="authenticate.php" method="POST">
+        <label class="w3-text-black"><b>User Name</b></label>
+        <p></p>
+        <input class="w3-input w3-border w3-light-grey" type="text" id="username" name="username" required>
+        <p></p>
+        <label class="w3-text-black"><b>Password</b></label>
+        <p></p>
+        <input class="w3-input w3-border w3-light-grey" type="password" id="password" name="password" required>
+        <p></p>
+        <button class="w3-btn w3-black" type="submit">Login</button>
+        <p></p>
+      </form>
+
+<div class="w3-container w3-light-grey w3-center">
+    <p>&copy; Good Shepherd Jesus Christ Church<br>
+    <a href="https://www.goodshepherdjcchurch.org">https://www.goodshepherdjcchurch.org</a></p>
+    <p class="w3-small">Powered by GSJCC Media Team</p>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var errorMessage = document.getElementById('error-message');
+        
+        if (username === "" || password === "") {
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = "Both fields are required.";
+            return false;
+        }
+        errorMessage.style.display = 'none';
+        return true;
+    }
+</script>
+
+</body>
+</html>
