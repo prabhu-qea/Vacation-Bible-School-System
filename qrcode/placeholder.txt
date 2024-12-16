@@ -1,0 +1,3 @@
+Placeholder for all the qr codes generated from the registrations.
+
+Make sure this folder is writable for the server user account.
