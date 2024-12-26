@@ -144,7 +144,7 @@ Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more inf
 
 Prabhu Maniraj [https://github.com/prabhu-qea](https://github.com/prabhu-qea)
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+<!--Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
