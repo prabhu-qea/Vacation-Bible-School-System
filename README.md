@@ -2,7 +2,9 @@
 
 <br />
 <div align="center">
-
+  <a href="https://github.com/prabhu-qea/Vacation-Bible-School-System">
+    <img src="img/logo.jpg" alt="Logo" width="75%" height="75%">
+  </a>
 <h2 align="center">Vacation Bible School System</h3>
 
   <p align="justify">
