@@ -67,18 +67,19 @@ else {
             <div class="w3-half">
                 <b><?php echo $church_name;?> - <?php echo $vbs_title;?> - <?php echo $vbs_year;?></b>
                 <p></p>
-                Get ready for a fun-filled adventure with lots of exciting activities! From thrilling indoor games to awesome outdoor adventures, everything is based on the Biblical values. Your kids will have a blast making new friends, working together as a team, and helping each other as we explore the theme <b>"Destiny"</b>. And guess what? This event is completely <b>FREE!</b> We'll provide breakfast, lunch, and snacks to keep everyone energized. Make sure to arrive on time so you don't miss out on any of the fun!
+                Enter your own contect here...
                 <p></p>
-                <b>Time/Date/Venue:</b> 8:30am - 3pm | July 25th, 26th, and 27th | The Centre, Milton Road, Wallington, SM6 9RP
+                <b>Time/Date/Venue:</b> Enter your own contect here...
                 <p></p>                
-                We care about your privacy. According to the UK DPA 2018 & EU GDPR regulations, we'll never sell your data and we promise to keep your details safe and secure.
+                Enter your own contect here...
                 <p></p>
-                We hope to see you there for three days of unforgettable fun and learning!
+                Enter your own contect here...
                 <p></p>
             </div>
             <div class="w3-half">
                 <b>Few Important bits:</b>
                 <p></p>
+                <!--Please edit the below as needed -->                
                 I understand it is my responsibility to inform the church of any medical conditions, allergies, or relevant health information about my child, and I have disclosed all necessary details.
                 <p></p>
                 In case of a medical emergency, I consent to my child receiving medical care, including first aid, CPR, or ambulance services, understanding the church will attempt to contact me or the provided emergency contact before seeking care, but may proceed if urgent. 
