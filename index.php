@@ -23,6 +23,14 @@ include 'inc/global.php';
 <body>
 
 <?php
+if ($vbs_active == "N") {
+    echo "<div class='w3-container'><div class='w3-container w3-center'><h2>No Vacation Bible School Active at the moment. Please check back later. Thanks!</h2></div><p></p>";
+    echo $footer;
+    exit;
+}
+?>
+
+<?php
 
 $sq = "SELECT * FROM reg_entries";
 
