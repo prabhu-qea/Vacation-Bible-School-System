@@ -37,11 +37,20 @@ include '../inc/global.php';
         <div class="w3-container w3-light-blue">
             <h3><u>QR Code Check-In System</u></h3>
         </div>
+        <p></p>
+        <div class="w3-container w3-light-blue">
+                <video id="video" width="300" height="200" autoplay playsinline hidden></video>
+                <canvas id="canvas" hidden></canvas>
+                <button class="w3-button w3-black" id="startBtn">Start Scanner</button>
+                <button class="w3-button w3-black" id="stopBtn" disabled>Stop Scanner</button>
+                <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+        </div>
             <form class="w3-container w3-border" id="checkinForm" action="qrcheckin.php" method="post">
                 <p></p>
-                <label class="w3-text-black"><b>QR Code</b></label>
-                <p></p>            
-                <input class="w3-input w3-border w3-light-grey" type="text" id="qrraw" name="qrraw" required autofocus><p></p>
+                <label class="w3-text-black"><b>QR Code Data:</b></label>
+                <p></p>
+                            
+                <input class="w3-input w3-border w3-light-grey" type="text" id="qrraw" name="qrraw" required autofocus readonly placeholder="QR Code data will appear here"><p></p>
                 <label class="w3-text-black"><b>Select the day</b></label><p></p>
                 <select class="w3-select w3-border" name="day" id="day">
                     <option value="Day1">Day 1</option>
@@ -52,6 +61,65 @@ include '../inc/global.php';
                 <button class="w3-btn w3-black" type="submit">Check-in</button>
                 <p></p>
             </form>
-    </div>        
+    </div>
+    <script>
+        let video = document.getElementById("video");
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+        let qrInput = document.getElementById("qrraw");
+        let startBtn = document.getElementById("startBtn");
+        let stopBtn = document.getElementById("stopBtn");
+        let stream = null;
+        let scanning = false;
+
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: "environment" } // Rear camera
+                });
+                video.srcObject = stream;
+                video.hidden = false;
+                scanning = true;
+                requestAnimationFrame(scanQRCode);
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+            } catch (error) {
+                console.error("Camera error:", error);
+                alert("Camera access denied or not supported.");
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop()); // Stop camera
+            }
+            video.hidden = true;
+            scanning = false;
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+
+        function scanQRCode() {
+            if (!scanning) return;
+
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: "dontInvert" });
+
+                if (code) {
+                    qrInput.value = code.data; // Autofill the text field
+                    stopCamera(); // Stop scanning after successful scan
+                }
+            }
+            requestAnimationFrame(scanQRCode);
+        }
+
+        startBtn.addEventListener("click", startCamera);
+        stopBtn.addEventListener("click", stopCamera);
+    </script> 
 <p></p>
 <?php echo $footer; ?>
